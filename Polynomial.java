@@ -35,8 +35,7 @@ public class Polynomial
                 new_values[i] = given_array[i];
             }
         }
-        Polynomial new_poly = new Polynomial(new_values);
-        return new_poly;
+        return new Polynomial(new_values);
     }
 
     public double evaluate(double val)
@@ -51,8 +50,7 @@ public class Polynomial
 
     public boolean hasRoot(double val)
     {
-        if(evaluate(val) == 0) return true;
-        return false;
+        return evaluate(val) == 0;
     }
 
 }
