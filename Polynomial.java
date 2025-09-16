@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Polynomial
 {
     private double[] poly_val;
@@ -10,11 +12,11 @@ public class Polynomial
 
     public Polynomial(double[] given_poly)
     {
-        poly_val = given_poly;
+        poly_val = Arrays.copyOf(given_poly, given_poly.length);
     }
 
     public Polynomial add(Polynomial given_poly)
-    {
+    {		
         double[] given_array = given_poly.poly_val;
         double[] new_values = new double[Math.max(poly_val.length, given_array.length)]; //Take the larger array size
         int lowest_size = Math.min(poly_val.length, given_array.length);  //This ensures that the "shared" size is within bounds
