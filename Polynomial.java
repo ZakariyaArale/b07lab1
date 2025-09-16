@@ -12,7 +12,9 @@ public class Polynomial
 
     public Polynomial(double[] given_poly)
     {
-        poly_val = Arrays.copyOf(given_poly, given_poly.length);
+        //Ensure the polynomial given can't be modified outside of this class
+        //for data encapuslation purposes
+        poly_val = Arrays.copyOf(given_poly, given_poly.length); 
     }
 
     public Polynomial add(Polynomial given_poly)
