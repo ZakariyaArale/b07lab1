@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Polynomial
 {
     private double[] poly_val;
@@ -12,7 +10,7 @@ public class Polynomial
 
     public Polynomial(double[] given_poly)
     {
-        poly_val = Arrays.copyOf(given_poly, given_poly.length);
+        poly_val = given_poly; 
     }
 
     public Polynomial add(Polynomial given_poly)
@@ -22,20 +20,14 @@ public class Polynomial
         int lowest_size = Math.min(poly_val.length, given_array.length);  //This ensures that the "shared" size is within bounds
         for(int i = 0; i < new_values.length; i++) 
         {
-            if(i < lowest_size) 
-            {
-                new_values[i] = poly_val[i] + given_array[i];
-            }
+            if(i < lowest_size) new_values[i] = poly_val[i] + given_array[i];
+            
             //Checks if poly_val is the bigger array, if so copy its data
-            else if(poly_val.length == new_values.length)
-            {
-                new_values[i] = poly_val[i];
-            }
+            else if(poly_val.length == new_values.length) new_values[i] = poly_val[i];
+            
             //Ditto for given_array
-            else
-            {
-                new_values[i] = given_array[i];
-            }
+            else new_values[i] = given_array[i];
+            
         }
         return new Polynomial(new_values);
     }
