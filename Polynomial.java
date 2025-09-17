@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Polynomial
 {
     private double[] poly_val;
@@ -12,9 +10,7 @@ public class Polynomial
 
     public Polynomial(double[] given_poly)
     {
-        //Ensure the polynomial given can't be modified outside of this class
-        //for data encapuslation purposes
-        poly_val = Arrays.copyOf(given_poly, given_poly.length); 
+        poly_val = given_poly; 
     }
 
     public Polynomial add(Polynomial given_poly)
