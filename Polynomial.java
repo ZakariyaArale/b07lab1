@@ -1,10 +1,11 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Scanner;
-import java.io.PrintWriter;
 
 public class Polynomial
 {
+	
     public double[] poly_non_zeros;
     public int[] poly_exp;
    
@@ -140,21 +141,22 @@ public class Polynomial
     }
     
     public void saveToFile(String path) throws FileNotFoundException
-    {
-    		PrintWriter dest = new PrintWriter(path);
-    		boolean is_first = true;
+{
+		PrintStream f = new PrintStream(path);
+		boolean is_first = true;
     	for(int i = 0; i < poly_non_zeros.length; i++)
 		{
-			if(poly_exp[i] == 0) dest.print(poly_non_zeros[i]); 
+			if(poly_exp[i] == 0) f.print(poly_non_zeros[i]); 
 			else if(poly_non_zeros[i] < 0 || is_first)
 			{
-				dest.print(poly_non_zeros[i] + "x" + poly_exp[i]);
-				is_first = false;
+				f.print(poly_non_zeros[i] + "x" + poly_exp[i]);
 			}
-			else dest.print("+" + poly_non_zeros[i] + "x" + poly_exp[i]);
-	
+			else f.print("+" + poly_non_zeros[i] + "x" + poly_exp[i]);
+			
+			if(is_first) is_first = false;
 		}
-    		dest.close();
+		f.print("\n");
+    	f.close();
     }
     
     
