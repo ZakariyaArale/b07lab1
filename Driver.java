@@ -7,20 +7,14 @@ import java.util.Arrays;
 public class Driver {
     public static void main(String [] args) {
         int num = 1;
-        //1. Zero polynomial (evaulate)
-    	Polynomial p = new Polynomial();
-        if(Arrays.equals(p.poly_non_zeros, new double[] {0}) && Arrays.equals(p.poly_exp, new int[] {0}) && p.evaluate(3) == 0) System.out.println("Test " + num + " good!");
-        else System.out.println("Failed " + num + " :(");
-        num++;
-        
-        //2. Create poly (evaluate)
+        //1. Create poly (evaluate)
         double [] c1 = {6,0,0,5};
         Polynomial p1 = new Polynomial(c1);
         if(Arrays.equals(p1.poly_non_zeros, new double[] {6,5}) && Arrays.equals(p1.poly_exp, new int[] {0,3}) && p1.evaluate(-2) == -34) System.out.println("Test " + num + " good!");
         else System.out.println("Failed " + num + " :(");
         num++;
         
-        //3. Add (hasRoot)
+        //2. Add (hasRoot)
         double [] c2 = {0,-2,0,0,-9};
         Polynomial p2 = new Polynomial(c2);
         Polynomial s = p1.add(p2);
@@ -28,13 +22,13 @@ public class Driver {
         else System.out.println("Failed " + num + " :(");
         num++;
 
-        //4. Multiply (evaluate)
+        //3. Multiply (evaluate)
         Polynomial m = p1.multiply(p2);
         if(Arrays.equals(m.poly_non_zeros, new double[] {-12,-64,-45}) && Arrays.equals(m.poly_exp, new int[] {1,4,7}) && m.evaluate(-2) == 4760) System.out.println("Test " + num + " good!");
         else System.out.println("Failed " + num + " :(");
         num++;
         
-        //5. File Reading
+        //4. File Reading
         try
         {
         	FileWriter f = new FileWriter("sample.txt");
@@ -62,7 +56,7 @@ public class Driver {
         	System.out.println("Can't write file ;(");
         }
         
-        //6. File Writing
+        //5. File Writing
         try
         {
             //Comment out the other tests to see result

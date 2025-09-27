@@ -11,8 +11,8 @@ public class Polynomial
    
     public Polynomial()
     {
-    	poly_non_zeros = new double[] {0};
-        poly_exp = new int[] {0};
+    	poly_non_zeros = new double[0];
+		poly_exp = new int[0];
     }
     
     //Helper method
@@ -126,17 +126,17 @@ public class Polynomial
     public Polynomial multiply(Polynomial given_poly)
     {
     	int size = poly_exp[poly_exp.length - 1] + given_poly.poly_exp[given_poly.poly_exp.length - 1] + 1;
-    		double[] new_values = new double[size];
-    		for(int i = 0; i < poly_exp.length; i++)
-    		{
-    			for(int j = 0; j < given_poly.poly_exp.length; j++)
-    			{
-    				double val = poly_non_zeros[i] * given_poly.poly_non_zeros[j];
-    				int index = poly_exp[i] + given_poly.poly_exp[j];
-    				new_values[index] += val;
-    			}
-    		}
-    		return new Polynomial(new_values);
+		double[] new_values = new double[size];
+		for(int i = 0; i < poly_exp.length; i++)
+		{
+			for(int j = 0; j < given_poly.poly_exp.length; j++)
+			{
+				double val = poly_non_zeros[i] * given_poly.poly_non_zeros[j];
+				int index = poly_exp[i] + given_poly.poly_exp[j];
+				new_values[index] += val;
+			}
+		}
+		return new Polynomial(new_values);
     		
     }
     
