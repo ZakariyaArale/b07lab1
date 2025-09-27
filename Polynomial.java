@@ -125,6 +125,7 @@ public class Polynomial
     
     public Polynomial multiply(Polynomial given_poly)
     {
+		if(given_poly.poly_exp.length == 0 || poly_exp.length == 0) return new Polynomial();
     	int size = poly_exp[poly_exp.length - 1] + given_poly.poly_exp[given_poly.poly_exp.length - 1] + 1;
 		double[] new_values = new double[size];
 		for(int i = 0; i < poly_exp.length; i++)
